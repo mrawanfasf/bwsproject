@@ -1,5 +1,5 @@
 {
-    "name": "streamflow",
+    "name": "xstream",
     "version": "1.1.0",
     "description": "Live streaming apps  that allows you to stream live to various platforms such as YouTube, Facebook, and others via the RTMP protocol.",
     "main": "src/server.js",
