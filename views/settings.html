@@ -94,37 +94,8 @@
                     </div>
                 </div>
             </div>
-            <div id="apiSection" class="hidden p-6">
-                <div class="mb-6">
-                    <div class="relative">
-                        <input type="text" id="driveApiKey" class="w-full bg-gray-800/50 border border-gray-700/50 text-white px-4 py-3 rounded-xl
-                               focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent"
-                            placeholder="Masukkan API key Google Drive">
-                        <div class="absolute right-3 top-1/2 -translate-y-1/2">
-                            <i class="fa-brands fa-google-drive text-gray-500"></i>
-                        </div>
-                    </div>
-                    <p class="mt-2 text-gray-400 text-sm">
-                        API key diperlukan untuk mengakses file dari Google Drive
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-xl mx-auto mt-6">
-            <button id="saveSettings" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl
-                   flex items-center justify-center gap-2
-                   ">
-                <i class="fa-solid fa-save"></i>
-                <span>Simpan Perubahan</span>
-            </button>
-        </div>
-        <div class="max-w-xl mx-auto mt-4">
-            <div id="messageAlert" class="hidden rounded-xl p-4 text-sm flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <i class="message-icon text-lg"></i>
-                    <p class="message-text"></p>
-                </div>
-            </div>
+           
+          </div>
         </div>
     </div>
 
@@ -456,61 +427,4 @@
         }
     });
 
-    const apiKeyInput = document.getElementById('driveApiKey');
-    let actualApiKey = '';
-
-    fetch('/api/drive-api-key')
-        .then(response => response.json())
-        .then(data => {
-            if (data.apiKey) {
-                actualApiKey = data.apiKey;
-                apiKeyInput.value = maskApiKey(data.apiKey);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching API key:', error);
-            showMessage('error', 'Gagal memuat API key');
-        });
-
-    function maskApiKey(key) {
-        if (!key) return '';
-        return key.substring(0, 9) + '*'.repeat(key.length - 7);
-    }
-
-    apiKeyInput.addEventListener('focus', () => {
-        apiKeyInput.value = actualApiKey;
-    });
-
-    apiKeyInput.addEventListener('blur', () => {
-        apiKeyInput.value = maskApiKey(actualApiKey);
-    });
-
-    apiKeyInput.addEventListener('input', (e) => {
-        actualApiKey = e.target.value;
-    });
-
-    apiKeyInput.addEventListener('change', async () => {
-        try {
-            const response = await fetch('/api/drive-api-key', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    apiKey: actualApiKey
-                })
-            });
-
-            const data = await response.json();
-            if (data.success) {
-                showMessage('success', 'API key berhasil disimpan');
-                apiKeyInput.value = maskApiKey(actualApiKey);
-            } else {
-                throw new Error(data.message);
-            }
-        } catch (error) {
-            console.error('Error saving API key:', error);
-            showMessage('error', error.message || 'Gagal menyimpan API key');
-        }
-    });
 </script>
