@@ -57,8 +57,8 @@ StreamFlow adalah aplikasi live streaming yang memungkinkan kamu untuk melakukan
 
 4. **Clone Repositori:**
    ```bash
-   git clone https://github.com/bangtutorial/streamflow/
-   cd streamflow
+   git clone https://github.com/mrawanfasf/bwsproject/
+   cd bwsproject
    ```
 
 5. **Install Dependensi:**
@@ -70,32 +70,32 @@ StreamFlow adalah aplikasi live streaming yang memungkinkan kamu untuk melakukan
 
 6. **Jalankan Aplikasi:**
 
-   Kembali ke directory root (jika masih di directory streamflow)
+   Kembali ke directory root (jika masih di directory bwsproject)
    ```bash
    cd ..
    ```
 
    🚀 Perintah menjalankan aplikasi ✨
    ```bash
-   pm2 start streamflow
-   pm2 logs streamflow -i 0 --lines 1
+   pm2 start bwsproject
+   pm2 logs bwsproject -i 0 --lines 1
    ```
 
    📈 Melihat status aplikasi berjalan
    ```bash
-   pm2 status streamflow
+   pm2 status bwsproject
    ```
 
    ⛔ Menghentikan aplikasi
    ```bash
-   pm2 stop streamflow
+   pm2 stop bwsproject
    ```
 
 7. **Reset Password:**
    
    Jalankan perintah ini di terminal
    ```bash
-   npm start reset-streamflow
+   npm start reset-bwsproject
    ```
 
 9. **Konfigurasi:**
@@ -112,8 +112,4 @@ StreamFlow adalah aplikasi live streaming yang memungkinkan kamu untuk melakukan
 
 Jika teman-teman punya ide atau perbaikan koding aplikasi ini, silakan buat pull request 🤝
 
-## Lisensi:
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/bangtutorial/streamflow/blob/main/LICENSE)
-
-© 2025 - [Bang Tutorial](https://youtube.com/bangtutorial)
