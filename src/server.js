@@ -1102,35 +1102,25 @@ app.get('/thumbnails/:filename', async (req, res) => {
     }
 });
 
-// Endpoint untuk Google Drive API key
-app.get('/api/drive-api-key', requireAuthAPI, async (req, res) => {
-  try {
-    const apiKey = await database.getSetting('drive_api_key');
-    res.json({ apiKey });
-  } catch (error) {
-    sendError(res, 'Failed to get API key');
-  }
-});
+// Endpoint untuk menyimpan Google Drive file ID atau link
+app.post('/api/drive-file', requireAuthAPI, async (req, res) => {
+  const { fileIdOrLink } = req.body;
 
-// Endpoint untuk menyimpan API key
-app.post('/api/drive-api-key', requireAuthAPI, async (req, res) => {
-  const { apiKey } = req.body;
-  
-  if (!apiKey) {
-    return res.status(400).json({ 
-      success: false, 
-      message: 'API key tidak boleh kosong' 
+  if (!fileIdOrLink) {
+    return res.status(400).json({
+      success: false,
+      message: 'File ID atau link tidak boleh kosong'
     });
   }
 
   try {
-    await database.saveSetting('drive_api_key', apiKey);
+    await database.saveSetting('drive_file', fileIdOrLink);
     res.json({ success: true });
   } catch (error) {
-    console.error('Error saving API key:', error);
+    console.error('Gagal menyimpan file ID/link:', error);
     res.status(500).json({
       success: false,
-      message: 'Gagal menyimpan API key'
+      message: 'Gagal menyimpan file ID atau link'
     });
   }
 });
