@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 });
 
 async function resetPassword() {
-  console.log('\n=== StreamFlow Password Reset ===\n');
+  console.log('\n=== xStream Password Reset ===\n');
   let attempts = 0;
   const maxAttempts = 5;
 
