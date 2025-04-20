@@ -1,6 +1,6 @@
 <br>
 <div align="center">
-<img alt="LOGO" src="https://github.com/mrawanfasf/bwsproject/refs/heads/main/public/img/logo.png" width="420" height="auto" />
+<img alt="LOGO" src="https://github.com/mrawanfasf/bwsproject/blob/main/public/img/logo.png" width="420" height="auto" />
 </div>
 <br>
 
@@ -10,7 +10,7 @@
 
 StreamFlow adalah aplikasi live streaming yang memungkinkan kamu untuk melakukan live streaming ke berbagai platform seperti YouTube, Facebook, dan lainnya menggunakan protokol RTMP. Aplikasi ini berjalan di VPS (Virtual Private Server) dan mendukung streaming ke banyak platform sekaligus dengan fitur multi-window. StreamFlow juga dilengkapi dengan fitur login, gallery dan history streaming untuk melacak history streaming.
    <p align="center">
-   <img alt="screenshot" src="https://github.com/mrawanfasf/bwsproject/refs/heads/main/public/img/screenshot.jpg" width="500px" height="auto" />
+   <img alt="screenshot" src="https://github.com/mrawanfasf/bwsproject/blob/main/public/img/screenshot.jpg" width="500px" height="auto" />
    </p>
 
 ## Fitur Utama:
